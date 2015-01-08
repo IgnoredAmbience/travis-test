@@ -1,6 +1,6 @@
 language: c    # Not really, but close enough
 
-#env:
+env:
  - MAKETARGET=test
  # These are broken until esprima is moved
  # - TARGET=test_json
