@@ -1,21 +1,7 @@
 language: c    # Not really, but close enough
 
-env:
- - MAKETARGET=test
- # These are broken until esprima is moved
- # - TARGET=test_json
- # - TARGET=test_js
-
-before_install:
-  - sudo add-apt-repository -y ppa:avsm/ocaml42+opam12
-  - sudo apt-get update
-
-install:
-  - sudo apt-get install opam ocaml-native-compilers camlp4-extra
-  - opam init -y
-  - eval `opam config env`
-  - opam install -y ounit xml-light yojson js_of_ocaml
-
 script:
   - exit 0
 
+notifications:
+  webhooks: http://baobab.doc.ic.ac.uk:55678/travis-ci
