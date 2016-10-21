@@ -1,4 +1,12 @@
 #!/bin/sh
+
+ANSI_CLEAR="\033[0K"
+travis_fold() {
+  local action=$1
+  local name=$2
+  echo -en "travis_fold:${action}:${name}\r${ANSI_CLEAR}"
+}
+
 travis_fold open test1
 echo "some output"
 travis_fold open test2
