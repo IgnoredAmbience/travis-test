@@ -1,4 +1,4 @@
 language: c    # Not really, but close enough
 
 script:
-  - make
+  - ./folds.sh
