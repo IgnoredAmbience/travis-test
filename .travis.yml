@@ -1,7 +1,4 @@
 language: c    # Not really, but close enough
 
 script:
-  - exit 0
-
-notifications:
-  webhooks: http://baobab.doc.ic.ac.uk:55678/travis-ci
+  - make
