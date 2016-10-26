@@ -2,5 +2,4 @@ language: c    # Not really, but close enough
 
 script:
   - ./folds.sh
-  - sh -c env
-  - ls -al ~/.ssh
+  - ssh-agent -l
