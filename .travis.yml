@@ -3,4 +3,4 @@ language: c    # Not really, but close enough
 script:
   - ./folds.sh
   - dpl --version
-  - echo $DEPLOY_KEY
+  - echo -e "$DEPLOY_KEY"
