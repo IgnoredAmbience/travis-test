@@ -30,10 +30,11 @@ git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
 cd ..
 
 # Clean out existing contents
-rm -rf out/**/* || exit 0
+rm -rf out/**/* out/* || exit 0
 
 # Run our compile script
 doCompile
+ls -la
 ls -la out
 
 # Now let's go have some fun with the cloned repo
