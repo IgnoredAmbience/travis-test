@@ -22,6 +22,10 @@ REPO=`git config remote.origin.url`
 SSH_REPO=${REPO/https:\/\/github.com\//git@github.com:}
 SHA=`git rev-parse --verify HEAD`
 
+eval `ssh-agent`
+echo "$DEPLOY_KEY" | ssh-add /dev/stdin
+ssh github.com || exit 0
+
 # Clone the existing gh-pages for this repo into out/
 # Create a new empty branch if gh-pages doesn't exist yet (should only happen on first deply)
 git clone $REPO out
@@ -49,5 +53,4 @@ fi
 git add --all .
 git commit -m "Deploy to GitHub Pages: ${SHA}"
 
-# I expect it to fail here
-ssh-agent -c "bash -c echo -e '$DEPLOY_KEY' > ssh-add -; git push $SSH_REPO $TARGET_BRANCH"
+ssh-agent -k
