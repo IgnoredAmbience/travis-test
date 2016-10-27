@@ -49,7 +49,5 @@ fi
 git add --all .
 git commit -m "Deploy to GitHub Pages: ${SHA}"
 
-ssh github.com
-
 # I expect it to fail here
-git push $SSH_REPO $TARGET_BRANCH
+ssh-agent -c "bash -c echo -e '$DEPLOY_KEY' > ssh-add -; git push $SSH_REPO $TARGET_BRANCH"
