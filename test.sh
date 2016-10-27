@@ -39,6 +39,7 @@ ls -la out
 
 # Now let's go have some fun with the cloned repo
 cd out
+ls -la
 git config user.name "Travis CI"
 git config user.email "$COMMIT_AUTHOR_EMAIL"
 
@@ -50,6 +51,8 @@ fi
 
 # Commit the "changes", i.e. the new version.
 # The delta will show diffs between new and old versions.
+pwd
+ls -la
 git add .
 git commit -m "Deploy to GitHub Pages: ${SHA}"
 
