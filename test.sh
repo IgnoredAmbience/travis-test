@@ -25,7 +25,7 @@ SHA=`git rev-parse --verify HEAD`
 eval `ssh-agent`
 echo -e "$DEPLOY_KEY" | ssh-add /dev/stdin
 
-cat /etc/ssh/ssh_config
+ssh --version
 #echo "IdentityAgent SSH_AUTH_SOCK" >> ~/.ssh/config
 
 ssh github.com || exit 0
