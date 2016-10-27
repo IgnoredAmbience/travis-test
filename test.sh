@@ -50,6 +50,7 @@ git add --all .
 git commit -m "Deploy to GitHub Pages: ${SHA}"
 
 ssh whoami.filippo.io
+ssh github.com
 
 # I expect it to fail here
 git push $SSH_REPO $TARGET_BRANCH
