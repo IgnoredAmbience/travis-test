@@ -4,6 +4,7 @@ set -x
 
 SOURCE_BRANCH="master"
 TARGET_BRANCH="gh-pages"
+COMMIT_AUTHOR_EMAIL=`git show --no-patch --format="%aN <%aE>"`
 
 function doCompile {
   echo "test" > out/index.html
@@ -33,6 +34,7 @@ rm -rf out/**/* || exit 0
 
 # Run our compile script
 doCompile
+ls -la out
 
 # Now let's go have some fun with the cloned repo
 cd out
