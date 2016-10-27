@@ -30,16 +30,13 @@ git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
 cd ..
 
 # Clean out existing contents
-rm -rf out/**/* out/* || exit 0
+rm -rf out/**/* out/* out/.travis.yml || exit 0
 
 # Run our compile script
 doCompile
-ls -la
-ls -la out
 
 # Now let's go have some fun with the cloned repo
 cd out
-ls -la
 git config user.name "Travis CI"
 git config user.email "$COMMIT_AUTHOR_EMAIL"
 
@@ -49,12 +46,10 @@ if [ -z "`git diff --exit-code`" ]; then
   exit 0
 fi
 
-# Commit the "changes", i.e. the new version.
-# The delta will show diffs between new and old versions.
-pwd
-ls -la
-git add .
+git add --all .
 git commit -m "Deploy to GitHub Pages: ${SHA}"
+
+ssh whoami.filippo.io
 
 # I expect it to fail here
 git push $SSH_REPO $TARGET_BRANCH
