@@ -25,6 +25,7 @@ SHA=`git rev-parse --verify HEAD`
 eval `ssh-agent`
 echo -e "$DEPLOY_KEY" | ssh-add /dev/stdin
 cat ~/.ssh/config
+cat /etc/ssh/config
 ssh github.com || exit 0
 
 # Clone the existing gh-pages for this repo into out/
