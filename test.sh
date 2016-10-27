@@ -23,7 +23,7 @@ SSH_REPO=${REPO/https:\/\/github.com\//git@github.com:}
 SHA=`git rev-parse --verify HEAD`
 
 eval `ssh-agent`
-echo "$DEPLOY_KEY" | ssh-add /dev/stdin
+echo -e "$DEPLOY_KEY" | ssh-add /dev/stdin
 ssh github.com || exit 0
 
 # Clone the existing gh-pages for this repo into out/
