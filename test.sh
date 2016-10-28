@@ -25,10 +25,11 @@ SHA=`git rev-parse --verify HEAD`
 eval `ssh-agent`
 echo -e "$DEPLOY_KEY" | ssh-add /dev/stdin
 
-ssh -V
-#echo "IdentityAgent SSH_AUTH_SOCK" >> ~/.ssh/config
-
-ssh github.com || exit 0
+cat /etc/ssh/ssh_config
+ls -l ~/.ssh
+cat ~/.ssh/config
+env
+ssh -vvv github.com
 
 # Clone the existing gh-pages for this repo into out/
 # Create a new empty branch if gh-pages doesn't exist yet (should only happen on first deply)
