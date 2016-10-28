@@ -26,6 +26,7 @@ SHA=`git rev-parse --verify HEAD`
 touch ~/.ssh/id_rsa
 chmod 600 ~/.ssh/id_rsa
 echo -e "$DEPLOY_KEY" > ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa
 unset DEPLOY_KEY
 #ssh-add /dev/stdin
 
