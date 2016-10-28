@@ -1,6 +1,5 @@
 #!/bin/bash
 set -e # Exit with nonzero exit code if anything fails
-set -x
 
 SOURCE_BRANCH="master"
 TARGET_BRANCH="gh-pages"
@@ -22,11 +21,9 @@ REPO=`git config remote.origin.url`
 SSH_REPO=${REPO/https:\/\/github.com\//git@github.com:}
 SHA=`git rev-parse --verify HEAD`
 
-#eval `ssh-agent`
 touch ~/.ssh/id_rsa
 chmod 600 ~/.ssh/id_rsa
 echo -e "$DEPLOY_KEY" > ~/.ssh/id_rsa
-ssh -vvv git@github.com
 
 # Clone the existing gh-pages for this repo into out/
 # Create a new empty branch if gh-pages doesn't exist yet (should only happen on first deply)
@@ -55,4 +52,3 @@ fi
 git add --all .
 git commit -m "Deploy to GitHub Pages: ${SHA}"
 
-ssh-agent -k
