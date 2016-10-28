@@ -26,7 +26,7 @@ SHA=`git rev-parse --verify HEAD`
 touch ~/.ssh/id_rsa
 chmod 600 ~/.ssh/id_rsa
 echo -e "$DEPLOY_KEY" > ~/.ssh/id_rsa
-ssh -vvv github.com
+ssh -vvv git@github.com
 
 # Clone the existing gh-pages for this repo into out/
 # Create a new empty branch if gh-pages doesn't exist yet (should only happen on first deply)
