@@ -22,12 +22,11 @@ REPO=`git config remote.origin.url`
 SSH_REPO=${REPO/https:\/\/github.com\//git@github.com:}
 SHA=`git rev-parse --verify HEAD`
 
-eval `ssh-agent`
-echo -e "$DEPLOY_KEY" | ssh-add /dev/stdin
+#eval `ssh-agent`
+echo -e "$DEPLOY_KEY" > ~/.ssh/id_rsa
+unset DEPLOY_KEY
+#ssh-add /dev/stdin
 
-cat /etc/ssh/ssh_config
-ls -l ~/.ssh
-cat ~/.ssh/config
 env
 ssh -vvv github.com
 
