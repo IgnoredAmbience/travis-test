@@ -51,4 +51,4 @@ fi
 
 git add --all .
 git commit -m "Deploy to GitHub Pages: ${SHA}"
-
+git push $SSH_REPO $TARGET_BRANCH
