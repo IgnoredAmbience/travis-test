@@ -1,6 +1,3 @@
-language: c    # Not really, but close enough
-
-script:
-  - ./folds.sh
-  - dpl --version
-  - ./test.sh
+language: c
+install: wget https://raw.githubusercontent.com/edgemaster/ocaml-ci-scripts/docgen-ssh-key/.travis-docgen.sh
+script: bash -ex .travis-docgen.sh
