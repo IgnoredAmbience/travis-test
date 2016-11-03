@@ -2,5 +2,4 @@ language: c    # Not really, but close enough
 
 script:
   - ./folds.sh
-  - dpl --version
-  - ./test.sh
+  - env
