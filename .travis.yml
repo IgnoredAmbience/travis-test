@@ -1,5 +1,5 @@
 language: c    # Not really, but close enough
+dist: trusty
 
 script:
-  - ./folds.sh
-  - env
+  - make --version
